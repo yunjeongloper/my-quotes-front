@@ -46,12 +46,12 @@
   @media screen and (max-width: 768px) {
     padding: 10px 25px;
     font-size: 1.3em;
-    width: 90%;
+    width: calc(100% - 30px);
 
     .close {
       font-size: 2.2em;
       top: 15px;
-      right: 25px;
+      right: 20px;
     }
 
     .text {

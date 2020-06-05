@@ -256,7 +256,7 @@ div.write-button:hover::after {
   .player-container {
     width: 100%;
     height: unset;
-
+    padding: 0;
     audio {
       margin: 15px;
     }
