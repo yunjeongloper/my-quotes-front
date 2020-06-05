@@ -1,0 +1,128 @@
+.main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  .quotes-background {
+    position: absolute;
+    z-index: -1;
+    line-height: 1.5;
+    color: gray;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .letter {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 600px;
+    background-color: darkorange;
+    padding: 15px;
+    color: white;
+
+    header {
+      display: flex;
+      flex-direction: row;
+      font-size: 2rem;
+
+      p {
+        margin: 5px 0px 15px 0px;
+      }
+
+      .p-2 {
+        display: flex;
+        align-items: flex-end;
+
+        .font-5 {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .input-container {
+      display: flex;
+      flex: 1;
+
+      .letter-input {
+        width: 100%;
+        font-size: 20px;
+
+        border: 0;
+        background-attachment: local;
+        background-image: linear-gradient(
+            to right,
+            darkorange 0px,
+            transparent 0px
+          ),
+          linear-gradient(to left, darkorange 0px, transparent 0px),
+          repeating-linear-gradient(
+            darkorange,
+            darkorange 30px,
+            #ccc 30px,
+            #ccc 31px,
+            darkslategray 31px
+          );
+        line-height: 31px;
+        padding: 0px 10px;
+
+        color: white;
+      }
+    }
+
+    .button-container {
+      @extend .font-5;
+      margin-top: 15px;
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        font-size: 1.3rem;
+        color: white;
+        background-color: black;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .letter {
+      width: 80%;
+      height: 70%;
+
+      header {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 481px) {
+    .letter {
+      width: 80%;
+      height: 70%;
+
+      header {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .letter {
+      width: 80%;
+      height: 70%;
+
+      header {
+        font-size: 1rem;
+      }
+
+      .button-container button {
+        font-size: 1rem;
+      }
+    }
+  }
+}

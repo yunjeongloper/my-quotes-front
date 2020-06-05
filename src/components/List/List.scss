@@ -1,0 +1,270 @@
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.list {
+  header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid darkorange;
+    padding: 15px;
+  }
+
+  .quotes {
+    margin: 15px;
+    display: grid;
+    grid-gap: 15px;
+    // grid-template-rows: auto 1fr; /* NEW */
+    // grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    // grid-auto-rows: 200px;
+
+    /* fit as many columns as possible, 180px wide each: */
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    /* each row is 20px high -- we always span 2+ */
+    grid-auto-rows: minmax(20px, auto);
+
+    .short {
+      grid-row-end: span 1;
+    }
+    .medium {
+      grid-row-end: span 2;
+    }
+    .long {
+      grid-row-end: span 3;
+    }
+
+    .quote {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 15px;
+      background-color: white;
+      border-width: 1px;
+      border-style: solid;
+      border-color: black;
+      line-height: 1.8;
+      box-sizing: border-box;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+
+      .elliipse {
+        text-overflow: ellipsis;
+      }
+
+      .author {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15px;
+        text-align: right;
+        font-size: 0.8rem;
+      }
+
+      &:hover {
+        cursor: url(../../assets/nw.png), auto;
+      }
+    }
+  }
+}
+
+.player-container {
+  display: flex;
+  width: 200px;
+  height: 100%;
+  padding: 0 15px;
+  border-bottom: 1px solid darkorange;
+
+  audio {
+    margin-top: 15px;
+  }
+}
+
+.quotes-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.logo-text {
+  background-color: black;
+  font-size: 2.5rem;
+  color: white;
+  font-family: 'Noto Sans KR';
+  font-weight: bold;
+  padding: 5px 10px;
+  border: none;
+}
+
+div.write-button {
+  position: relative;
+  transition: all 0.3s;
+  font-size: 2.5rem;
+  color: white;
+  font-family: 'Noto Sans KR';
+  font-weight: bold;
+  padding: 5px 10px;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    span {
+      color: darkorange;
+    }
+  }
+}
+
+div.write-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: darkorange;
+  border-bottom-color: darkorange;
+  transform: scale(0.1, 1);
+}
+
+div.write-button:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+div.write-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.3s;
+  background-color: darkorange;
+}
+div.write-button:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+.quotes-slide-background {
+  z-index: -1;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  span {
+    position: absolute;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(182, 182, 182);
+  }
+
+  .quote-1 {
+    left: -50%;
+    top: random(80) + 10%;
+    -webkit-animation: floatText 25s linear infinite random(20) + 0s;
+    animation: floatText 25s linear infinite random(20) + 0s;
+  }
+
+  .quote-2 {
+    left: -50%;
+    top: random(80) + 10%;
+    -webkit-animation: floatText 25s linear infinite random(20) + 0s;
+    animation: floatText 25s linear infinite random(20) + 0s;
+  }
+
+  .quote-3 {
+    left: -50%;
+    top: random(80) + 10%;
+    -webkit-animation: floatText 25s linear infinite random(20) + 0s;
+    animation: floatText 25s linear infinite random(20) + 0s;
+  }
+
+  .quote-4 {
+    left: -50%;
+    top: random(80) + 10%;
+    -webkit-animation: floatText 25s linear infinite random(20) + 0s;
+    animation: floatText 25s linear infinite random(20) + 0s;
+  }
+
+  .quote-5 {
+    left: -50%;
+    top: random(80) + 10%;
+    -webkit-animation: floatText 25s linear infinite random(20) + 0s;
+    animation: floatText 25s linear infinite random(20) + 0s;
+  }
+
+  // @for $i from 1 through 5 {
+  //   $rotation: random(360);
+  //   $border: random(10);
+  //   $opacity: random(10);
+  //   $speed: 10 + 100 / random(10);
+
+  //   @keyframes quote-amin-#{$i} {
+  //     0% {
+  //       transform: translate3d(0, 0, 0) rotate(#{$rotation}deg);
+  //     }
+  //     100% {
+  //       transform: translate3d(0, 0, 0) rotate(#{$rotation + 360}deg);
+  //     }
+  //   }
+  // }
+}
+
+@-webkit-keyframes floatText {
+  from {
+    left: -50%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes floatText {
+  from {
+    left: -50%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .list {
+    .quotes {
+      grid-template-columns: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .player-container {
+    width: 100%;
+    height: unset;
+
+    audio {
+      margin: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 481px) {
+}
+
+@media screen and (max-width: 320px) {
+}

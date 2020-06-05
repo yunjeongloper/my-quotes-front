@@ -1,0 +1,62 @@
+.detail-modal {
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  min-height: 70%;
+  max-height: 80%;
+  padding: 50px 100px;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+
+  .close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: transparent;
+    font-size: 50px;
+    color: white;
+    border: none;
+
+    &:hover {
+      cursor: url(../../assets/f_w.png), auto;
+    }
+  }
+
+  .text {
+    overflow-y: scroll;
+    max-height: 500px;
+  }
+
+  &.show {
+    display: flex;
+  }
+
+  &.loading:hover {
+    cursor: url(../../assets/skip.png), auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 25px;
+    font-size: 1.3em;
+    width: 90%;
+
+    .close {
+      font-size: 2.2em;
+      top: 15px;
+      right: 25px;
+    }
+
+    .text {
+      max-height: 450px;
+      margin-top: 20px;
+    }
+  }
+}
