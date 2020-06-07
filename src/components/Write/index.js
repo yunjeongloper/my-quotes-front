@@ -13,8 +13,8 @@ const WriteModal = ({isShow, object, closeFn}) => {
       <button className="close" onClick={() => closeFn()}>
         X
       </button>
-      <div className="text">
-        <span>{text}</span>
+      <div className="input-container">
+        <textarea className="letter-input" />
       </div>
     </div>
   );
