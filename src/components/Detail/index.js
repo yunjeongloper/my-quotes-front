@@ -49,8 +49,11 @@ const DetailModal = ({isShow, object, closeFn}) => {
       <button className="close" onClick={() => closeFn()}>
         X
       </button>
-      <div className="text">
+      <div className="content">
         <span>{text}</span>
+        <p className="author">{`- ${
+          object && (object.author || '익명의 누군가')
+        }`}</p>
       </div>
     </div>
   );

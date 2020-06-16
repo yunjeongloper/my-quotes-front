@@ -31,9 +31,17 @@
     }
   }
 
-  .text {
+  .content {
     overflow-y: scroll;
     max-height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .author {
+      margin-bottom: 0px;
+    }
   }
 
   &.show {
